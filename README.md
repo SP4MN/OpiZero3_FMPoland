@@ -4,7 +4,8 @@ Obraz systemu Orange PiZero3 do FM Poland
 
 
 Obraz zbudowany na bazie Armbian_community_24.5.0-trunk.403_Orangepizero3_bookworm_current_6.6.26_minimal
-Plik obrazu .iso nagrać programem balenaEtcher https://etcher.balena.io/ na kartę min 16GB!!!
+
+Plik obrazu .iso nagrać programem balenaEtcher https://etcher.balena.io/ na kartę # min 16GB!!!
 
 Wgrany najnowszy dashboard oraz pliki dźwiękowe (z obrazów od SP2ONG) 
 
