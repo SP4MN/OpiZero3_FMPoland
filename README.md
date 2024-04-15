@@ -5,9 +5,9 @@ Obraz systemu Orange PiZero3 do FM Poland
 
 Obraz zbudowany na bazie Armbian_community_24.5.0-trunk.403_Orangepizero3_bookworm_current_6.6.26_minimal
 
-Plik obrazu .iso nagrać programem balenaEtcher https://etcher.balena.io/ na kartę # min 16GB!!!
+Plik obrazu .iso nagrać programem balenaEtcher https://etcher.balena.io/ na kartę **min 16GB**!!! 
 
-Wgrany najnowszy dashboard oraz pliki dźwiękowe (z obrazów od SP2ONG) 
+Wgrany najnowszy dashboard oraz pliki dźwiękowe (z obrazów SP2ONG https://github.com/FM-POLAND/hotspot-rpi-image/releases ) 
 
 Logowanie po SSH
 login: root
@@ -15,6 +15,7 @@ password: 1234
 Dashboard http://IP_hotspota
 IP adres możesz znaleźć przy pomocy darmowego narzędzia: https://www.advanced-ip-scanner.com/pl/
 Domyślnie obraz przygotowany do pracy ze modyfikowaną karta dźwiękową CM108. 
+
 
 
 
