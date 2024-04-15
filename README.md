@@ -10,7 +10,7 @@ Plik obrazu .iso nagrać programem balenaEtcher https://etcher.balena.io/ na kar
 
 Wgrany najnowszy dashboard oraz pliki dźwiękowe (z obrazów SP2ONG https://github.com/FM-POLAND/hotspot-rpi-image/releases ) 
 
-Logowanie po SSH
+Logowanie po SSH przez np. PuTTy https://www.putty.org/ 
 
 **login: root**
 
