@@ -1,83 +1,29 @@
 # OpiZero3_FMPoland
 
-Obraz systemu Orange PiZero3 do FM Poland
+Budowa hotspota Poland FM na bazie mikrokomputera Orange Pi Zero3
 
 ![Zero3-img3-1](https://github.com/SP4MN/OpiZero3_FMPoland/assets/166878544/611f54d7-f2cf-4572-adec-044a27b51fa5)
 
-Obraz zbudowany na bazie Armbian_community_24.5.0-trunk.403_Orangepizero3_bookworm_current_6.6.26_minimal
-
-Plik obrazu rozpakować do .iso i nagrać programem balenaEtcher https://etcher.balena.io/ na kartę **min 16GB**!!! 
-
-Wgrany najnowszy dashboard oraz pliki dźwiękowe (z obrazów SP2ONG https://github.com/FM-POLAND/hotspot-rpi-image/releases ) 
-
-Logowanie po SSH przez np. PuTTy https://www.putty.org/ 
-
-**login: root**
-
-**password: 1234**
-
-Dashboard http://IP-hotspota 
-
-IP adres możesz znaleźć przy pomocy darmowego narzędzia: https://www.advanced-ip-scanner.com/pl/ lub wysyłając do hotspota kod DTMF **30#**
-
-Domyślnie obraz przygotowany do pracy ze modyfikowaną kartą dźwiękową CM108
+Opis bazuje w dużej mierze na informacjach zawartych na stronie https://fmpoland.pl/category/wiedza/ . Jedyną różnicą jest wykorzystanie komputera Orange Pi Zero3, do
+którego został stworzony obraz dostępny na
+https://github.com/SP4MN/OpiZero3_FMPoland/releases
+Co będzie potrzebne:
+- mikrokomputer Orange Pi Zero3 (https://pl.aliexpress.com/w/wholesale-orange-pi-zero3.html)
+- karta dźwiękowa USB CM-108 (https://pl.aliexpress.com/w/wholesale-CM108.html)
+- Radiotelefon Baofeng 888s (https://pl.aliexpress.com/w/wholesale-Baofeng-888s.html)
+- puszka hermetyczna 170x105x82 IP65 (w OBI) (https://www.obi.pl/puszki-do-suchejzabudowy/elektro-plast-puszka-ip65-natynkowa-170x105-mm/p/3058559)
+- przetwornica napięcia step-down (https://pl.aliexpress.com/w/wholesale-step-down.html) do
+zmniejszenia napięcia z 5V do 3,7V żeby zasilić Baofenga
+- Gniazdo zasilania USB-C do obudowy, gniazdo RJ45 do obudowy z przewodem 20cm, przewody do
+zasilania cienkie, cienki kabel koncentryczny 50 Ohm 30cm, tranzystor BC547 – 2szt., rezystor 4,7k –
+2szt., kondensator ceramiczny 1nF, 2 przewody z wtykami do GPIO do zasilenia Pi Zero, nóżki-tulejki
+dystansowe do mocowania płytek PCB (np. od wejść VGA z monitorów i komputerów PC), kabel
+audio stereo (np. stare słuchawki)
 
 ![NEWcm108-diag](https://github.com/SP4MN/OpiZero3_FMPoland/assets/166878544/1e18b68e-740a-41d2-97f6-8ec342d9bbe3)
 
 
-Konfiguracja:
-1. Ustawić poprawne SQL/PTT (przez dashboard)
-2. wyedytować plik svxlink.conf
- 
-	 **sudo nano /etc/svxlink/svxlink.conf**
-   
-   (w edytorze nano klawisz F3 zapisuje plik, a klawisz F2 zamyka edytor)
 
-   W części [SimplexLogic] musisz wpisać swój znak w CALLSIGN= zamiast N0CALL
-
-   [SimplexLogic]
-
-   TYPE=Simplex
-
-   RX=Rx1
-
-   TX=Tx1
-
-   CALLSIGN=N0CALL
-
-   **Aby otrzymać konto na FM POLAND musisz zarejestrować się w seci https://fm-poland.pl/rejestracja-fm-poland/**
-
-   Otrzymane dane wpisuje się w części [ReflectorLogic] w pliku konfiguracyjnym svxlink.conf.
-   
-  	[ReflectorLogic]
-
-  	TYPE=Reflector
-
-  	HOSTS=reflector.fm-poland.pl,reflector.fm-poland.noip.pl
-
-  	HOST_PORT=5295
-
-  	CALLSIGN="N0CALL"
-
-  	AUTH_KEY="My_PASSWORD"
-
-  W części [ReflectorLogic] wpisz w MONITOR_TGS jakie inne dostępne TalkGroup będzie monitorował hotspot
-  
-  MONITOR_TGS=112+++,260,2600
-
-3. konfiguracja "NodeInfo" - Informacje o stacji
-
-   **sudo nano /etc/svxlink/node_info.json**
-
-   wpisać tu dane hotspota zgodnie z poradnikiem http://www.fm-poland.pl/plik-node_info-json/ 
-
-5. konfiguracja "WEBCnf" - konfiguracja wyglądu Dashboard (nagłówek itp.)
-
-   po wszystkich konfiguracjach zrestarować SVXLink
-   
-	**sudo systemctl restart svxlink.service**
-
-   
    Do usłyszenia w sieci FM Poland, 73... :-)
 
   
